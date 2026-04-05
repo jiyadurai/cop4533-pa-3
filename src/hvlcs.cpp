@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <fstream>
 #include <vector>
+#include <utility>
 
 int value(std::unordered_map<char, int> &values, const std::string &s) {
     int result = 0;
@@ -37,17 +38,20 @@ int main(int argc, char *argv[]) {
     const auto m = A.size();
     const auto n = B.size();
     // dp[i][j] stores the maximum value possible from the characters up to index i in A and up to index j in B
-    std::vector<std::vector<std::string>> dp(m, std::vector<std::string>(n+1));
+    std::vector<std::vector<std::pair<int, std::string>>> dp(m+1, std::vector<std::pair<int, std::string>>(n+1));
     for (int i = 0; i < m; i++) {
-        for (int j = 1; j < n+1; j++) {
-            if (A[i] == B[j-1]) {
-                dp[i][j] = dp[i][j-1] + B[j-1];
+        for (int j = 0; j < n; j++) {
+            if (A[i] == B[j] && values[A[i]] > 0) {
+                auto &[v, s] = dp[i][j];
+                dp[i + 1][j + 1] = {v + values[A[i]], s + A[i]};
             } else {
-                dp[i][j] = dp[i][j-1];
+                dp[i + 1][j + 1] = std::max(dp[i+1][j], dp[i][j+1]);
             }
         }
+
     }
 
-    std::cout << value(values, dp[m-1][n]) << "\n";
-    std::cout << dp[m-1][n] << "\n";
+    std::cout << dp[m][n].first << "\n";
+    std::cout << dp[m][n].second << "\n";
+
 }
