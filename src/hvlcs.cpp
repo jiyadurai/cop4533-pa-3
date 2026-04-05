@@ -37,14 +37,21 @@ int main(int argc, char *argv[]) {
 
     const auto m = A.size();
     const auto n = B.size();
-    // dp[i][j] stores the maximum value possible from the characters up to index i in A and up to index j in B
+    // dp[i][j] is the pair<int, string> corresponding to value, string of the best possible subsequence using
+    // the first i characters from A and the first j characters from B
     std::vector<std::vector<std::pair<int, std::string>>> dp(m+1, std::vector<std::pair<int, std::string>>(n+1));
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
+            // if there is a match and it is a character worth taking
+            // if there is an illegal character, it will overlook that.
             if (A[i] == B[j] && values[A[i]] > 0) {
                 auto &[v, s] = dp[i][j];
+                // take the character and add its value to the best made from before then
                 dp[i + 1][j + 1] = {v + values[A[i]], s + A[i]};
             } else {
+                // take the best result we have from skipping a character in A or in B
+                // note on the comparison of std::pair: it is lexicographic, so it first compares p1.first < p2.first
+                // so the integer value of the subsequence is prioritized, and not the comparison of the strings.
                 dp[i + 1][j + 1] = std::max(dp[i+1][j], dp[i][j+1]);
             }
         }
