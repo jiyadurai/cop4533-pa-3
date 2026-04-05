@@ -1,8 +1,43 @@
-5
-a 1
-b 2
-c 3
-d 4
-e 5
-abcde
-edcba
+40
+A 6
+B 57
+C 83
+D -43
+E -17
+F -14
+G 9
+H 41
+I 86
+J 93
+K 76
+L 70
+M -28
+N 47
+O 88
+P 84
+Q -19
+R 63
+S 85
+T -3
+U 40
+V -45
+W 48
+X 72
+Y -13
+Z 96
+[ -8
+\ -43
+] -7
+^ 76
+_ 59
+` -3
+a 80
+b -20
+c 45
+d 88
+e 75
+f 5
+g 100
+h -37
+HSTH^XOUaBbV\eWdefRIKWKY[XcKbG`\gGQW\dPNSHDKTHBf
+OHKJC[TeXhV`iKJThBO[XgHiE]_i`fWh^RPUEhCIJWZTBFf_aWKaD[FhhEGXDOBdQLGCMbbCiXcDAhRLYZhJadHTBBd

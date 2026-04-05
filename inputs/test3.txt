@@ -1,0 +1,47 @@
+44
+A 27
+B 74
+C 52
+D -48
+E -26
+F 34
+G 46
+H 31
+I -1
+J 15
+K 72
+L 15
+M -10
+N 65
+O 13
+P -45
+Q -21
+R 73
+S 41
+T -7
+U -21
+V 16
+W 33
+X -5
+Y -31
+Z 70
+[ -40
+\ 56
+] -8
+^ 19
+_ -28
+` -36
+a 19
+b 49
+c 99
+d 23
+e 90
+f 83
+g -8
+h -7
+i 44
+j 58
+k -18
+l 69
+hGaAB`lJV\VEhcecjQiQE[^IGBefh]WgkemFbRb_^YhDVQMS_b
+YCQgahd[dlU[UQGddggjINUcakGlUREFg\GeaGYelTYLUCZ[EaLDRTFjNjYm__PCaFRgRiCPljgg`XUlIgcVIMPS[WlXCEJ_ETIR
