@@ -3,14 +3,24 @@ Names: Luke Gorman and Jeevan Iyadurai
 UFIDs: 43500015 and 31691151
 
 To compile:
+
 in the main folder of the project, run
+
 g++ -std=c++20 -o out/hvlcs src/hvlcs.cpp
 
+
+
+
 To run:
+
 in the out folder of the project, run
+
 out [input file path]
+
 ex. 
+
 out ../inputs/test1.txt
+
 
 Assumptions are as stated in the assignment specifications.
 
