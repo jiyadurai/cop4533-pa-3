@@ -32,11 +32,11 @@ Problem 1:
 Problem 2:
 dp[i][j] = 
 
-	0                                                    if i == 0 || j == 0
+	0                                                     if i == 0 || j == 0
 
-	max(dp[i-1][j], dp[i-1][j-1] + val[A[i]])            if A[i] == B[j]
+	max(dp[i-1][j], dp[i][j-1], dp[i-1][j-1] + val[A[i]]) if A[i] == B[j]
 
-	dp[i-1][j]                                           if A[i] != B[j]
+	max(dp[i-1][j], dp[i][j-1]                            if A[i] != B[j]
 
 
 Here, dp[i][j] represents the best value of the first i chars of A and j chars of B.
@@ -62,7 +62,7 @@ Problem 3:
 
 				if (A[i] == B[j]) dp[i][j] = dp[i-1][j-1] + v[A[i]];
 
-				dp[i][j] = max(dp[i][j], dp[i-1][j]);
+				dp[i][j] = max(dp[i][j], dp[i-1][j], dp[i][j-1]);
 
 			}
 
@@ -88,7 +88,7 @@ The time complexity of this algorithm is O(n^2) where n is the length of the lon
 
 				if (A[i] == B[j]) dp[i][j] = pair<int, int>(dp[i-1][j-1].first + v[A[i]], dp[i-1][j-1].second + 1);
 
-				dp[i][j] = max(dp[i][j], dp[i-1][j]);
+				dp[i][j] = max(dp[i][j], dp[i-1][j], dp[i][j-1]);
 			}
 
 		}
