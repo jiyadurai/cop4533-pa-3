@@ -50,24 +50,51 @@ Or, if A[i] and B[j] match, we could include those two characters and add them t
 
 Problem 3:
 
-int hvlcs(string A, string B, map<char, int> v) { 
+(Assuming there was a typo in the problem and we should calculate the value)
 
-	vector<vector<int>> dp = (A.size(), vector<int>(B.size(), 0));
+	int hvlcs(string A, string B, map<char, int> v) { 
 
-	for (int i = 1; i < dp.size(); i++) {
+		vector<vector<int>> dp = (A.size(), vector<int>(B.size(), 0));
 
-		for (int j = 1; j < dp[i].size(); j++) {
+		for (int i = 1; i < dp.size(); i++) {
 
-			if (A[i] == B[j]) dp[i][j] = dp[i-1][j-1] + v[A[i]];
+			for (int j = 1; j < dp[i].size(); j++) {
 
-			dp[i][j] = max(dp[i][j], dp[i-1][j]);
+				if (A[i] == B[j]) dp[i][j] = dp[i-1][j-1] + v[A[i]];
+
+				dp[i][j] = max(dp[i][j], dp[i-1][j]);
+
+			}
 
 		}
 
+		return dp[A.size()-1][B.size()-1];
+
 	}
 
-	return dp[A.size()-1][B.size()-1];
+The time complexity of this algorithm is O(n^2) where n is the length of the longer of strings A and B.
 
-}
+
+
+(Calculating the length of the string)
+
+	int hvlcs(string A, string B, map<char, int> v) { 
+
+		vector<vector<pair<int, int>>> dp = (A.size(), vector<int>(B.size(), pair<int, int>));
+
+		for (int i = 1; i < dp.size(); i++) {
+
+			for (int j = 1; j < dp[i].size(); j++) {
+
+				if (A[i] == B[j]) dp[i][j] = pair<int, int>(dp[i-1][j-1].first + v[A[i]], dp[i-1][j-1].second + 1);
+
+				dp[i][j] = max(dp[i][j], dp[i-1][j]);
+			}
+
+		}
+
+		return dp[A.size()-1][B.size()-1];
+
+	}
 
 The time complexity of this algorithm is O(n^2) where n is the length of the longer of strings A and B.
