@@ -36,7 +36,7 @@ dp[i][j] =
 
 	max(dp[i-1][j], dp[i][j-1], dp[i-1][j-1] + val[A[i]]) if A[i] == B[j]
 
-	max(dp[i-1][j], dp[i][j-1]                            if A[i] != B[j]
+	max(dp[i-1][j], dp[i][j-1])                            if A[i] != B[j]
 
 
 Here, dp[i][j] represents the best value of the first i chars of A and j chars of B.
