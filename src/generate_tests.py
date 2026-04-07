@@ -1,11 +1,11 @@
 import random
 
 
-def write_file(file_name: str):
-    K = random.randint(4, 61)
-    values = {chr(ord('A') + i): random.randint(-50, 100) for i in range(K)}
-    A = "".join([chr(ord('A') + random.randint(0, K)) for _ in range(random.randint(25, 100))])
-    B = "".join([chr(ord('A') + random.randint(0, K)) for _ in range(random.randint(25, 100))])
+def write_file(file_name: str, mul):
+    K = 50
+    values = {chr(ord('A') + i): random.randint(0, 100) for i in range(K)}
+    A = "".join([chr(ord('A') + random.randint(0, K)) for _ in range(mul*25)])
+    B = "".join([chr(ord('A') + random.randint(0, K)) for _ in range(mul*25)])
 
     with open(file_name, "w") as f:
         f.write(str(K))
@@ -21,8 +21,8 @@ def write_file(file_name: str):
         f.write("\n")
 
 def main():
-    for i in range(1, 15):
-        write_file("inputs/test" + str(i) + ".txt")
+    for i in range(1, 21):
+        write_file("inputs/test" + str(i) + ".txt", i)
 
 
 

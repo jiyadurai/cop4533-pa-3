@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <utility>
+#include <chrono>
 
 int value(std::unordered_map<char, int> &values, const std::string &s) {
     int result = 0;
@@ -34,6 +35,7 @@ int main(int argc, char *argv[]) {
     catch (std::exception &err){
         std::cerr << "Error reading input file: " << err.what() << "\n";
     }
+    auto start = std::chrono::high_resolution_clock::now();
 
     const auto m = A.size();
     const auto n = B.size();
@@ -60,5 +62,10 @@ int main(int argc, char *argv[]) {
 
     std::cout << dp[m][n].first << "\n";
     std::cout << dp[m][n].second << "\n";
+
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::cout << "time elapsed: " << (duration.count() / 1000000) % 1000 << "s " << (duration.count() / 1000) % 1000 << "." << duration.count() % 1000 << "ms" << std::endl;
+
 
 }
