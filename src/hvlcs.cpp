@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-    std::cout << "time elapsed: " << (duration.count() / 1000000) % 1000 << "s " << (duration.count() / 1000) % 1000 << "." << duration.count() % 1000 << "ms" << std::endl;
+    //std::cout << "time elapsed: " << (duration.count() / 1000000) % 1000 << "s " << (duration.count() / 1000) % 1000 << "." << duration.count() % 1000 << "ms" << std::endl;
 
 
 }
